@@ -33,7 +33,7 @@ def mock_dependencies():
             # "mock_display_metrics": mock_display_metrics,
             # "mock_display_visualizations": mock_display_visualizations,
         }
- 
+
 
 def test_set_page_config(mock_dependencies):
     main.main()
@@ -42,4 +42,11 @@ def test_set_page_config(mock_dependencies):
         page_icon="🏃🏼‍♂️",
         layout="wide",
         initial_sidebar_state="auto",
+    )
+
+
+def test_load_and_clean_data_called(mock_dependencies):
+    main.main()
+    mock_dependencies["mock_load_and_clean_data"].assert_called_once_with(
+        "./ActivitiesGarmin.csv"
     )
