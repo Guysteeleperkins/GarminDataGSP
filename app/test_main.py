@@ -9,10 +9,10 @@ def mock_dependencies():
     with patch("app.main.st.set_page_config"
                ) as mock_set_page_config, patch(
         "app.main.st.title"
-    ) as mock_title:
+    ) as mock_title, patch(
+            "app.main.load_and_clean_data"
+    ) as mock_load_and_clean_data:
         # patch(
-        #     "app.main.load_and_clean_data"
-        # ) as mock_load_and_clean_data, patch(
         #     "app.main.apply_filters"
         # ) as mock_apply_filters, patch(
         #     "app.main.display_metrics"
@@ -28,7 +28,7 @@ def mock_dependencies():
         yield {
             "mock_set_page_config": mock_set_page_config,
             "mock_title": mock_title,
-            # "mock_load_and_clean_data": mock_load_and_clean_data,
+            "mock_load_and_clean_data": mock_load_and_clean_data,
             # "mock_apply_filters": mock_apply_filters,
             # "mock_display_metrics": mock_display_metrics,
             # "mock_display_visualizations": mock_display_visualizations,

@@ -1,5 +1,5 @@
 import streamlit as st
-from data_processing import load_and_clean_data
+from app.data_processing import load_and_clean_data
 
 
 def main():
@@ -13,9 +13,9 @@ def main():
 
     # Set the title of the app
     st.title("GSP Garmin Dataset Explorer")
-    
+   
     df = load_and_clean_data("./ActivitiesGarmin.csv")
-    
+
     return st.dataframe(df)
 
 
